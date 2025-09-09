@@ -1,20 +1,18 @@
 package org.example.entidade;
 
 public class Produto {
-    private Integer id;
+    private Integer id;         // pode ser null antes de salvar
     private String descricao;
-    private Integer qtd;
-    private Double preco;
-
+    private int qtd;            // primitivo
+    private double preco;       // primitivo
 
     public Produto() {}
 
-    public Produto(String descricao, Integer qtd, Double preco) {
+    public Produto(String descricao, int qtd, double preco) {
         this.descricao = descricao;
         this.qtd = qtd;
         this.preco = preco;
     }
-
 
     public Integer getId() {
         return id;
@@ -32,26 +30,27 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public Integer getQtd() {
+    public int getQtd() {
         return qtd;
     }
 
-    public void setQtd(Integer qtd) {
+    public void setQtd(int qtd) {
         this.qtd = qtd;
     }
 
-    public Double getPreco() {
+    public double getPreco() {
         return preco;
     }
 
-
-    public void setPreco(Double preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
     }
 
     @Override
     public String toString() {
-        return String.format("ID: %d | DESCRIÇÃO: %s | QUANTIDADE: %d | PREÇO: R$ %.2f",
-                id, descricao, qtd, preco);
+        return String.format(
+                "ID: %d | DESCRIÇÃO: %s | QUANTIDADE: %d | PREÇO: R$ %.2f",
+                id, descricao, qtd, preco
+        );
     }
 }

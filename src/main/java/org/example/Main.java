@@ -4,6 +4,7 @@ import org.example.Connection.ConexaoBanco;
 import org.example.DAO.ProdutoDAO;
 import org.example.Exceptions.BdExceptions;
 
+import org.example.entidade.Produto;
 import org.example.service.ProdutoService;
 
 import java.sql.Connection;
@@ -26,6 +27,7 @@ public class Main {
             System.out.println("Conexão obtida com sucesso!");
 
             ProdutoDAO produtoDAO = new ProdutoDAO(connection);
+            Produto produto = new Produto();
 
             int opcao;
             do {
@@ -45,6 +47,15 @@ public class Main {
                         break;
                     case 2:
                         produtoService.listarProdutos(produtoDAO);
+                        break;
+                    case 3:
+                        produtoService.buscarProdutoPorId(produtoDAO);
+                        break;
+                    case 4:
+                        produtoService.atualizarProduto(produtoDAO, sc);
+                        break;
+                    case 5:
+                        produtoService.excluirProduto(produtoDAO, sc);
                     case 6:
                         System.out.println("👋 Saindo do sistema...");
                         break;
